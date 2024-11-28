@@ -42,6 +42,7 @@ from matplotlib import cbook, figure
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT, FigureCanvasQTAgg
 import matplotlib.backend_bases
 from PyQt5 import QtCore, QtWidgets, QtGui
+from matplotlib.lines import Line2D
 
 from mslib.utils.thermolib import convert_pressure_to_vertical_axis_measure
 from mslib.utils import thermolib, FatalUserError
@@ -347,6 +348,36 @@ class TopViewPlotter(ViewPlotter):
             # Plot the new legimg in the legax axes.
             self.legimg = self.legax.imshow(img, origin=PIL_IMAGE_ORIGIN, aspect="equal", interpolation="nearest")
         self.ax.figure.canvas.draw()
+
+    def draw_flightpath_legend(self, flightpath_dict):
+        """
+        Draw the flight path legend on the plot, attached to the upper-left corner.
+        """
+        # Clear any existing legend
+        if self.ax.get_legend() is not None:
+            self.ax.get_legend().remove()
+
+        if not flightpath_dict:
+            self.ax.figure.canvas.draw()
+            return
+
+        # Create legend handles
+        legend_handles = []
+        for name, (color, linestyle) in flightpath_dict.items():
+            line = Line2D([0], [0], color=color, linestyle=linestyle, linewidth=2)
+            legend_handles.append((line, name))
+
+        # Add legend directly to the main axis, attached to the upper-left corner
+        self.ax.legend(
+            [handle for handle, _ in legend_handles],
+            [name for _, name in legend_handles],
+            loc='upper left',
+            bbox_to_anchor=(0, 1),  # (x, y) coordinates relative to the figure
+            bbox_transform=self.fig.transFigure,  # Use figure coordinates
+            frameon=False
+        )
+
+        self.ax.figure.canvas.draw_idle()
 
 
 class SideViewPlotter(ViewPlotter):
@@ -1280,6 +1311,17 @@ class MplSideViewCanvas(MplCanvas):
     def set_settings(self, settings, save=False):
         """Apply settings to view.
         """
+        if settings is None:
+            settings = self.plotter.get_settings()
+            settings.setdefault("line_thickness", 2)
+            settings.setdefault("line_style", "Solid")
+            settings.setdefault("line_transparency", 1.0)
+            settings.setdefault("colour_ft_vertices", "blue")
+            settings.setdefault("colour_ft_waypoints", "red")
+            settings.setdefault("draw_marker", True)
+            settings.setdefault("draw_flighttrack", True)
+            settings.setdefault("label_flighttrack", True)
+
         old_vertical_lines = self.plotter.settings["draw_verticals"]
         if settings is not None:
             self.plotter.set_settings(settings, save)
@@ -1303,6 +1345,11 @@ class MplSideViewCanvas(MplCanvas):
                 patch_facecolor=settings["colour_ft_fill"])
             wpi_plotter.set_patch_visible(settings["fill_flighttrack"])
             wpi_plotter.set_labels_visible(settings["label_flighttrack"])
+            wpi_plotter.set_line_thickness(settings["line_thickness"])
+            wpi_plotter.set_line_style(settings["line_style"])
+            wpi_plotter.set_line_transparency(
+                settings["line_transparency"] / 100.0 if settings["line_transparency"] > 1 else settings[
+                    "line_transparency"])  # Normalize the (transparency) value
 
             if self.waypoints_model is not None \
                     and settings["draw_verticals"] != old_vertical_lines:
@@ -1623,6 +1670,13 @@ class MplTopViewCanvas(MplCanvas):
         # required so that it is actually drawn...
         QtWidgets.QApplication.processEvents()
 
+    def update_flightpath_legend(self, flightpath_dict):
+        """
+        Update the flight path legend.
+        flightpath_dict: Dictionary where keys are flighttrack names, and values are tuples with (color, linestyle).
+        """
+        self.plotter.draw_flightpath_legend(flightpath_dict)
+
     def plot_satellite_overpass(self, segments):
         """Plots a satellite track on top of the map.
         """
@@ -1653,6 +1707,18 @@ class MplTopViewCanvas(MplCanvas):
 
         If settings is None, apply default settings.
         """
+        if settings is None:
+            # Default value if not present
+            settings = self.plotter.get_settings()
+            settings.setdefault("line_thickness", 2)
+            settings.setdefault("line_style", "Solid")
+            settings.setdefault("line_transparency", 1.0)
+            settings.setdefault("colour_ft_vertices", "blue")
+            settings.setdefault("colour_ft_waypoints", "red")
+            settings.setdefault("draw_marker", True)
+            settings.setdefault("draw_flighttrack", True)
+            settings.setdefault("label_flighttrack", True)
+
         self.plotter.set_settings(settings, save)
         settings = self.get_settings()
         if self.waypoints_interactor is not None:
@@ -1662,7 +1728,11 @@ class MplTopViewCanvas(MplCanvas):
             wpi_plotter.show_marker = settings["draw_marker"]
             wpi_plotter.set_vertices_visible(settings["draw_flighttrack"])
             wpi_plotter.set_labels_visible(settings["label_flighttrack"])
-
+            wpi_plotter.set_line_thickness(settings["line_thickness"])
+            wpi_plotter.set_line_style(settings["line_style"])
+            wpi_plotter.set_line_transparency(
+                settings["line_transparency"] / 100.0 if settings["line_transparency"] > 1 else settings[
+                    "line_transparency"])  # Normalize the (transparency) value
         self.draw()
 
     def set_remote_sensing_appearance(self, settings):
