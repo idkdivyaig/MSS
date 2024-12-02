@@ -86,6 +86,8 @@ requirements:
     - flask-login
     - pysaml2
     - libxmlsec1  # [not win]
+    # constraint on a transitive dependency, the entire line can be removed once the constraint is obsolete
+    - pyopenssl >=24.3.0
   run_constrained:
     - menuinst >=2.0.2
 
