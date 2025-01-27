@@ -7,6 +7,8 @@
         <file>mscolab-help/admin-window.png</file>
         <file>mscolab-help/version-window.png</file>
         <file>mscolab-help/add-operation.png</file>
+        <file>mscolab-help/chat-window-new.png</file>
+        <file>mscolab-help/upload-profile.png</file>
     </qresource>
     <qresource prefix="/gravatars">
         <file>default-gravatars/a.png</file>

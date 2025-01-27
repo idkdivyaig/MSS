@@ -241,6 +241,100 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </widget>
+       <widget class="QWidget" name="uploadImageTab">
+        <attribute name="title">
+         <string>Upload Profile Picture</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>-1</number>
+         </property>
+         <item row="0" column="0">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="spacing">
+            <number>-1</number>
+           </property>
+           <item>
+            <widget class="QTextEdit" name="textEdit_2">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAsNeeded</enum>
+             </property>
+             <property name="horizontalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
+             <property name="undoRedoEnabled">
+              <bool>false</bool>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="html">
+              <string>Instruction on how to upload profile picture.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="../resources/resources.qrc">:/images/mscolab-help/upload-profile.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2.2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item> 
+          </layout> 
+         </item>  
+        </layout>
+       </widget>
        <widget class="QWidget" name="createOperationTab">
         <attribute name="title">
          <string>Creating a Operation</string>
@@ -533,7 +627,7 @@ p, li { white-space: pre-wrap; }
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap resource="../resources/resources.qrc">:/images/mscolab-help/chat-window.png</pixmap>
+                <pixmap resource="../resources/resources.qrc">:/images/mscolab-help/chat-window-new.png</pixmap>
                </property>
                <property name="scaledContents">
                 <bool>true</bool>
