@@ -302,7 +302,18 @@ class Ui_mscolabHelpDialog(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'.SF NS Text\';\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.SF NS Text\';\">The status bar will notify if/not the new user is registered on the server. If successfully registered, you\'ll be taken to the login page where you can login with the new user credentials.</span></p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.connectingTab), _translate("mscolabHelpDialog", "Connecting"))
-        self.textEdit_2.setHtml(_translate("mscolabHelpDialog", "Instruction on how to upload profile picture."))
+        self.textEdit_2.setHtml(_translate("mscolabHelpDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.SF NS Text\';\">1. After logging in, the </span><span style=\" font-family:\'.SF NS Text\'; font-weight:600;\">main window </span><span style=\" font-family:\'.SF NS Text\';\"> will open.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'.SF NS Text\';\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.SF NS Text\';\">2. On the top-right corner, you will see your </span><span style=\" font-family:\'.SF NS Text\'; font-weight:600;\">username</span><span style=\" font-family:\'.SF NS Text\';\"> (used to log in) and a </span><span style=\" font-family:\'.SF NS Text\'; font-weight:600;\">box </span><span style=\" font-family:\'.SF NS Text\';\"> next to it.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'.SF NS Text\';\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.SF NS Text\';\">3. Click on the box and choose </span><span style=\" font-family:\'.SF NS Text\'; font-weight:600;\">Profile</span><span style=\" font-family:\'.SF NS Text\';\"> from the drop-down options.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'.SF NS Text\';\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'.SF NS Text\';\">4. In the Profile window, click the </span><span style=\" font-family:\'.SF NS Text\'; font-weight:600;\">Change Avatar</span><span style=\" font-family:\'.SF NS Text\';\"> button and select the picture you want to upload.</span></p>\n"
+"</body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.uploadImageTab), _translate("mscolabHelpDialog", "Upload Profile Picture"))
         self.textEdit_20.setHtml(_translate("mscolabHelpDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
