@@ -638,7 +638,7 @@ p, li { white-space: pre-wrap; }
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap resource="../resources/resources.qrc">:/images/mscolab-help/chat-window-new.png</pixmap>
+                <pixmap resource="../resources/resources.qrc">:/images/mscolab-help/chat-window.png</pixmap>
                </property>
                <property name="scaledContents">
                 <bool>true</bool>

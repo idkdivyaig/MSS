@@ -201,7 +201,7 @@ class Ui_mscolabHelpDialog(object):
         self.horizontalLayout_13.addItem(spacerItem12)
         self.label = QtWidgets.QLabel(self.chatTab)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(":/images/mscolab-help/chat-window-new.png"))
+        self.label.setPixmap(QtGui.QPixmap(":/images/mscolab-help/chat-window.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.horizontalLayout_13.addWidget(self.label)

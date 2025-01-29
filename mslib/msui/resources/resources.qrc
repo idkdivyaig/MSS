@@ -1,13 +1,12 @@
 <RCC>
     <qresource prefix="/images">
         <file>mscolab-help/connect.png</file>
-        <file>mscolab-help/chat-window.png</file>
         <file>mscolab-help/add-user.png</file>
         <file>mscolab-help/merge-window.png</file>
         <file>mscolab-help/admin-window.png</file>
         <file>mscolab-help/version-window.png</file>
         <file>mscolab-help/add-operation.png</file>
-        <file>mscolab-help/chat-window-new.png</file>
+        <file>mscolab-help/chat-window.png</file>
         <file>mscolab-help/upload-profile.png</file>
     </qresource>
     <qresource prefix="/gravatars">
