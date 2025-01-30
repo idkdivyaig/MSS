@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_mscolab_help_dialog.ui'
+# Form implementation generated from reading ui file 'mslib/msui/ui/ui_mscolab_help_dialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -113,7 +113,7 @@ class Ui_mscolabHelpDialog(object):
         self.horizontalLayout_2.addItem(spacerItem6)
         self.label_2 = QtWidgets.QLabel(self.uploadImageTab)
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap(":/images/mscolab-help/upload-profile.png"))
+        self.label_2.setPixmap(QtGui.QPixmap(":/images/mscolab-help/add-profile-image.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         self.horizontalLayout_2.addWidget(self.label_2)

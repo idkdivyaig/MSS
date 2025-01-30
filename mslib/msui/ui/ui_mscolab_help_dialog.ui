@@ -320,7 +320,7 @@ p, li { white-space: pre-wrap; }
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap resource="../resources/resources.qrc">:/images/mscolab-help/upload-profile.png</pixmap>
+                <pixmap resource="../resources/resources.qrc">:/images/mscolab-help/add-profile-image.png</pixmap>
                </property>
                <property name="scaledContents">
                 <bool>true</bool>
