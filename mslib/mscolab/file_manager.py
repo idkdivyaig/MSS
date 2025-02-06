@@ -39,8 +39,6 @@ from sqlalchemy.exc import IntegrityError
 from mslib.utils.verify_waypoint_data import verify_waypoint_data
 from mslib.mscolab.models import db, Operation, Permission, User, Change, Message
 from mslib.mscolab.conf import mscolab_settings
-from mslib.utils.auth import del_password_from_keyring
-from mslib.utils.config import config_loader
 
 
 class FileManager:
@@ -235,8 +233,6 @@ class FileManager:
                 # Delete profile image if it exists
                 if user.profile_image_path:
                     self.delete_user_profile_image(user.profile_image_path)
-                mscolab_server_url = config_loader(dataset="default_MSCOLAB")
-                del_password_from_keyring(service_name=mscolab_server_url[0], username=user.emailid)
                 db.session.delete(user)
                 db.session.commit()
             user_query = User.query.filter_by(id=user.id).first()
