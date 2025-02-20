@@ -939,9 +939,7 @@ class MSUIMscolab(QtCore.QObject):
         try:
             auth_name = config_loader(dataset="MSCOLAB_auth_user_name")
             del_password_from_keyring(self.mscolab_server_url, self.email)
-            if auth_name:
-                del_password_from_keyring(f"MSCOLAB_AUTH_{self.mscolab_server_url}", auth_name)
-            modify_config_file({"MSCOLAB_auth_user_name": None})
+            del_password_from_keyring(f"MSCOLAB_AUTH_{self.mscolab_server_url}", auth_name)
             response = self.conn.request_post("delete_own_account")
         except requests.exceptions.RequestException as ex:
             raise MSColabConnectionError(f"Some error occurred ({ex})! Please reconnect.")

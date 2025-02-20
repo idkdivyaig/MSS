@@ -876,7 +876,7 @@ class Test_Mscolab:
         self._create_user(qtbot, "something", "something@something.org", "something")
         u_id = self.window.mscolab.user['id']
         self.window.mscolab.open_profile_window()
-        assert self.url + "something@something.org" in mslib.utils.auth.keyring.get_keyring().passwords
+        assert self.url + "something@something.org" in mslib.utils.auth.keyring.get_keyring().passwords # Uses 'TestKeyring' from conftest.py for verification.
         assert "MSCOLAB_AUTH_" + self.url, "something@something.org" in mslib.utils.auth.keyring.get_keyring().passwords
         QtTest.QTest.mouseClick(self.window.mscolab.profile_dialog.deleteAccountBtn, QtCore.Qt.LeftButton)
         assert self.window.listOperationsMSC.model().rowCount() == 0
